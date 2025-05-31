@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<!-- Background -->
+	<rect width="64" height="64" fill="#FF5A5F" />
+	<!-- Border -->
+	<rect x="2" y="2" width="60" height="60" stroke="black" stroke-width="4" fill="none" />
+	<!-- DB Letters -->
+	<path d="M18 42V22H27C29.7614 22 32 24.2386 32 27V27C32 29.7614 29.7614 32 27 32H18" stroke="white" stroke-width="4" stroke-linecap="square" fill="none" />
+	<path d="M34 22V42H43C45.7614 42 48 39.7614 48 37V37V27C48 24.2386 45.7614 22 43 22H34Z" stroke="white" stroke-width="4" stroke-linecap="square" fill="none" />
+	<!-- "PS.IT" text -->
+	<text x="32" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white">
+		PS.IT
+	</text>
+	<!-- Decorative shadow -->
+	<rect x="6" y="46" width="52" height="4" fill="rgba(0,0,0,0.3)" />
+	<!-- Neobrutalism style decorative elements -->
+	<rect x="50" y="8" width="6" height="6" fill="#FFDE59" />
+	<rect x="8" y="8" width="6" height="6" fill="#53A6FA" />
+</svg>

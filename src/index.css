@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Цветовая палитра в стиле необрутализм */
+    --color-primary: 255, 90, 95; /* Яркий красный */
+    --color-secondary: 255, 222, 89; /* Яркий желтый */
+    --color-accent: 83, 166, 250; /* Синий акцент */
+    --color-text: 30, 30, 30; /* Темный текст */
+    --color-background: 255, 255, 255; /* Белый фон */
+    --color-card: 245, 245, 245; /* Светло-серый фон карточек */
+
+    /* Тени */
+    --shadow-neobrutalism: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+
+    /* Скругления */
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
+  }
+}
+
+@layer components {
+  .neo-container {
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .neo-box {
+    @apply bg-white border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] p-6 transition-transform hover:-translate-y-1;
+  }
+
+  .neo-button {
+    @apply bg-primary text-white font-bold py-3 px-6 border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]
+           transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+           active:translate-y-0 active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:outline-none;
+  }
+
+  .neo-button-secondary {
+    @apply bg-secondary text-black font-bold py-3 px-6 border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]
+           transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+           active:translate-y-0 active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:outline-none;
+  }
+
+  .neo-input {
+    @apply w-full border-2 border-black p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .neo-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight;
+  }
+
+  .neo-subheading {
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  .neo-card {
+    @apply bg-white p-6 border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-1;
+  }
+
+  /* Анимированный сетчатый фон в стиле необрутализм */
+  .neo-grid-bg {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.8) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+  }
+}
+
+/* Глобальные стили */
+body {
+  @apply text-base antialiased bg-background;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Стили для анимаций */
+@keyframes shift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-shift {
+  animation: shift 3s ease-in-out infinite;
+}
+
+/* Заметные ссылки в стиле необрутализм */
+a:not(.neo-button):not(.neo-button-secondary) {
+  @apply relative text-primary font-medium;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:not(.neo-button):not(.neo-button-secondary)::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 w-full h-1 bg-primary;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+a:not(.neo-button):not(.neo-button-secondary):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
