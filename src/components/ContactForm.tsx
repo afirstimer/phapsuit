@@ -1,4 +1,7 @@
-import { useState, type FormEvent } from 'react';
+import React, { useState, type FormEvent } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 
 interface ContactFormProps {
     title?: string;
@@ -31,16 +34,17 @@ const ContactForm = ({
         }));
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         setError('');
 
         // Simulating form submission
-        setTimeout(() => {
+        setTimeout(async () => {
             try {
                 // In a real application, this would be an API call
-                console.log('Form data:', formData);
+                await addDoc(collection(db, 'contacts'), formData);
+
                 setIsSubmitted(true);
                 setIsSubmitting(false);
                 // Reset form
@@ -124,7 +128,7 @@ const ContactForm = ({
                                 value={formData.phone}
                                 onChange={handleChange}
                                 className="neo-input"
-                                placeholder="+44 (___) ___-__-__"
+                                placeholder="Your phone number"
                             />
                         </div>
 
