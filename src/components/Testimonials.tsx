@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
         name: 'Maria Johnson',
         company: 'Fintech Pulse',
         position: 'CTO',
-        content: 'We scaled our operations with [Your SaaS Name] and cut admin time by over 60% in just 3 months!',
+        content: 'We scaled our operations with PS.IT and cut admin time by over 60% in just 3 months!',
         rating: 5,
     },
     {
